@@ -1,0 +1,48 @@
+<div class="container-fluid" style="height: 100vh; background-color: #c3cfe2; overflow: hidden;">
+    <div class="row" style="height: 105%;">
+        <div class="col-md-2" style="height: 100%;">
+            <div id="sideBar">
+                <app-side-bar></app-side-bar>
+            </div>
+        </div>
+        <div class="col-md-10" style="height: 100%; overflow-y: scroll; overflow-x: hidden;">
+            <div class="row" style="height: 10%;">
+                <div class="col-md-8" style=" box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; background-color: white; height: 95%; width: 85%; border-radius: 25px;  position: relative; top: 25%; right: 0; bottom: 0; left: -6px; margin: auto;">
+                    <img src="assets/penIcon.png" width="30px" alt="" style="position: relative;top: 20px;left: 13px;">
+                    <h6 style="font-family: 'SUSE';position: relative;left: 61px; color: gray;top: -3px;">Add Your Note</h6>
+                </div>
+                <div class="col-md-2" style=" box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; background-color: white; height: 95%; width: 13%; border-radius: 25px;  position: relative; top: 25%; right: 0; bottom: 0; left: 0; margin: auto;"></div>
+            </div>
+            <div class="row mt-1" style="position: relative; top: 25px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; height: fit-content;  background-color: white; border-radius: 25px;">
+
+                <h4 style="font-family: 'SUSE';position: relative;top: 23px;left: 15px;color: gray;">Your Notes</h4>
+                
+
+                <div class="container mt-2">
+                    <div class="row">
+                        <div class="container my-4 col-md-12">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4 d-flex justify-content-center mb-4">
+                                    <app-note-card></app-note-card>
+                                </div>
+                                <!-- @if(noteList.length){
+                                    @for (note of noteList; track $index) {
+                                        <div class="col-lg-4 d-flex justify-content-center mb-4">
+                                            <app-note-card [cardValues] = "note"></app-note-card>
+                                        </div>
+                                    }
+                                  }
+                                  @else {
+                                    <h6 style="justify-content: center; color: gray;">No Avalibel Notes to show!</h6>
+                                  } -->
+    
+            
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

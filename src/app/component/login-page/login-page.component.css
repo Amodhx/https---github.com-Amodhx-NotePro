@@ -1,0 +1,30 @@
+#loginformId{
+    height: 84vh; 
+    position: relative; 
+    top: 8vh; 
+    background-color: white;
+    max-width: 68vw;
+    border-radius: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+
+    
+}
+#loginformId>div:nth-child(2){
+    font-family: "SUSE", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    position: relative;
+    top: -66vh;
+    left: 3vw;
+}
+#loginformId button{
+    width: 7vw;
+}
+#loginformId h6{
+    /* position: absolute; */
+    position: absolute;
+    top: 6vh;
+    color: gray;
+    width: 30vw;
+}

@@ -1,0 +1,47 @@
+<div style="height: 100vh; background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);" class="container-fluid">
+    <div id="loginformId" class="container">
+        <div class="row">
+            <img style="    position: relative; left: 29vw; width: 37vw;" src="assets/loginPageImage.png" alt="LoginImage">
+        </div>
+        <div class="row">
+            <h2>Ready to store your story ?</h2>
+            <h6>Signup to our website and start storing you favorite thing, story, literature today!!</h6>
+            <form style="max-width: 35vw;" class="mt-5">
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="userNameField">User name</label>
+                    <input [(ngModel)] = "userNameValue" [ngModelOptions]="{standalone: true}" type="text" id="userNameField" class="form-control"/>
+                
+                 </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form2Example1">Email address</label>
+                  <input [(ngModel)]="emailValue" [ngModelOptions]="{standalone: true}" type="email" id="form2Example1" class="form-control"/>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form2Example2">Password</label>
+                  <input [(ngModel)] = "passwordValue"[ngModelOptions]="{standalone: true}" type="password" id="form2Example2" class="form-control"/>
+                </div>
+
+                <div class="row mb-4">
+                  <div class="col d-flex justify-content-center">
+                    <div class="form-check">
+                      <input (change)="onCheckBoxSelecting($event)" class="form-check-input" type="checkbox" value="" id="form2Example31"/>
+                      <label class="form-check-label" for="form2Example31">I Agree to Terms & Conditions !!</label>
+                    </div>
+                  </div>
+              
+                  <div class="col">
+                    <a href="#!">Forgot password?</a>
+                  </div>
+                </div>
+              
+                <button (click)="onLoginBtnClick()"  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4 {{btnClass}}">Log in</button>
+            </form>              
+
+
+
+
+        </div>
+
+
+    </div>
+</div>

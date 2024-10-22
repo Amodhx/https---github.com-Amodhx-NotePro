@@ -1,0 +1,13 @@
+#sideBar{
+    height: 95%; 
+    width: 95%; 
+    top: 2.5%; 
+    background-color:white; 
+    position: relative; 
+    bottom: 0; 
+    right: 0; 
+    left: 0; 
+    margin: auto;
+    border-radius: 25px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

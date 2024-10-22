@@ -1,0 +1,35 @@
+<div class="container-fluid" style="height: 100vh; background-color: #c3cfe2; overflow: hidden;">
+    <div class="row" style="height: 105%;">
+        <div class="col-md-2" style="height: 100%;">
+            <div id="sideBar">
+                <app-side-bar></app-side-bar>
+            </div>
+        </div>
+        <div class="col-md-10" style="height: 100%; overflow-y: scroll; overflow-x: hidden;">
+            <div class="row" style="height: 10%;">
+                <div class="col-md-8" style=" box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; background-color: white; height: 95%; width: 85%; border-radius: 25px;  position: relative; top: 25%; right: 0; bottom: 0; left: -6px; margin: auto;">
+                    <img src="assets/penIcon.png" width="30px" alt="" style="position: relative;top: 20px;left: 13px;">
+                    <h6 style="font-family: 'SUSE';position: relative;left: 61px; color: gray;top: -3px;">Add Your Note</h6>
+                </div>
+                <div class="col-md-2" style=" box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; background-color: white; height: 95%; width: 13%; border-radius: 25px;  position: relative; top: 25%; right: 0; bottom: 0; left: 0; margin: auto;"></div>
+            </div>
+
+            <div class="row mt-1" style="position: relative; top: 25px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; height: 80vh;  background-color: white; border-radius: 25px;">
+
+                <h4 style="font-family: 'SUSE';position: relative;top: 25px;left: 15px;color: gray;" [contentEditable]="true">Title of the Note</h4>
+                
+                <div class="container-fluid">
+                    <div class="row">
+                        <p style="position: relative;top: -127px;left: 22px;width: 75vw; color: gray" [contentEditable]="true">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates cumque perferendis nostrum dignissimos qui ratione nulla consectetur animi repellendus modi tenetur cupiditate voluptatibus tempora, voluptas molestias voluptate minima. Repudiandae, expedita! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, alias! Odit reprehenderit illo quos laborum adipisci. Inventore atque eos suscipit, esse maiores porro, soluta fugiat enim maxime possimus mollitia omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni voluptatem quidem non ut cum similique tempore nisi esse quo. Sunt quibusdam voluptatem tenetur totam illo! Nisi neque aspernatur architecto quaerat.</p>
+                        
+                        <p style="position: relative;top: -127px;left: 22px;width: 75vw; color: gray" [contentEditable]="true">2024/01/01</p>
+                      
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
