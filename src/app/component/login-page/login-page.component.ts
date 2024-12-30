@@ -5,6 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { notes, users } from '../../../db/db';
 import { UserModel } from '../../../model/userModel';
 import { NoteModel } from '../../../model/noteModel';
+import axios from 'axios';
 
 @Component({
   selector: 'app-login-page',
@@ -30,7 +31,9 @@ export class LoginPageComponent {
     }
   }
   onLoginBtnClick(){
-    this.router.navigateByUrl('/home');
+    console.log(this.userNameValue+" e "+ this.emailValue+" p "+this.passwordValue);
+    
+    // this.router.navigateByUrl('/home');
 
 //     const http =new XMLHttpRequest();
 //     const user:UserModel =new UserModel("",this.userNameValue,"",this.emailValue,this.passwordValue,"");
