@@ -17,8 +17,9 @@ export class NoteCardComponent{
   @Input()
   cardValues?:NoteModel = new NoteModel("dsa","sda","das","dsa","dsa","dsa");
 
-  constructor(private elementRef: ElementRef, private router:Router) {}
-  text = "No pipe found with name 'slice'. No pipe found with name 'slice'. No pipe found with name 'slice'. No pipe found with name 'slice'.No pipe found with name 'slice'.No pipe found with name 'slice'.No pipe found with name 'slice'.No pipe found with name 'slice'.No pipe found with name 'slice'.No pipe found with name 'slice'.No pipe found with name 'slice'. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit harum magnam illum ex, laborum, minus, dignissimos est quod ipsa sequi sunt esse possimus perspiciatis ullam! Ullam tempore sapiente ut. Voluptatum";
+  constructor(private elementRef: ElementRef, private router:Router) {
+    
+  }
   color = "white";
   fontColor = "black";
   onMouseEnter(){
@@ -27,6 +28,15 @@ export class NoteCardComponent{
     this.fontColor = 'white'
     nativeElement.style.fontColor = "white";
     nativeElement.style.backgroundColor = "#43BBFF"
+  }
+
+  truncateText(text: any, wordLimit: number): string {
+    if (!text) return '';
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return text;
   }
 
   onMouseLeave(){
