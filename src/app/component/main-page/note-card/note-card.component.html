@@ -1,17 +1,17 @@
                             
-<!-- 
-    <div id="card"  (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" style="width: 350px; height: 450px; border-bottom: 2px solid #43BBFF; position: relative;">
-        <img style="position: relative;top: 18px;left: 18px;" src="assets/bdayIcon.png" width="30px" alt="">
-        <h4  style="position: relative;top: 48px;left: 17px; color: {{fontColor}};" >{{cardValues?.noteTitle}}</h4>
-        <p style="position: relative;top: 54px;left: 22px;width: 325px; color: {{fontColor}}">{{cardValues?.noteDesc}}</p>
-        <img style="position: relative;top: 211px;left: 200px;" src="assets\calendorIcon.png" width="30px" alt="">
-        <p style="position: relative;left: 235px;top: 183px; color: {{fontColor}}">{{cardValues?.createDate}}</p>
-    </div> -->
 
     <div id="card"  (mouseenter)="onMouseEnter()" (click)="onCardClick()" (mouseleave)="onMouseLeave()" style="width: 350px; height: 450px; border-bottom: 2px solid #43BBFF; position: relative;">
+        <img style="position: relative;top: 18px;left: 18px;" src="assets/bdayIcon.png" width="30px" alt="">
+        <h4 [style.color]="fontColor"  style="position: relative;top: 48px;left: 17px;" >{{cardValues?.noteTitle}}</h4>
+        <p [style.color]="fontColor" style="position: relative;top: 54px;left: 22px;width: 325px;">{{cardValues?.noteDesc}}</p>
+        <img style="position: relative;top: 211px;left: 200px;" src="assets\calendorIcon.png" width="30px" alt="">
+        <p [style.color]="fontColor" style="position: relative;left: 235px;top: 183px;">{{cardValues?.createDate}}</p>
+    </div>
+
+    <!-- <div id="card"  (mouseenter)="onMouseEnter()" (click)="onCardClick()" (mouseleave)="onMouseLeave()" style="width: 350px; height: 450px; border-bottom: 2px solid #43BBFF; position: relative;">
         <img style="position: relative;top: 18px;left: 18px;" src="assets/bdayIcon.png" width="30px" alt="">
         <h4  style="position: relative;top: 48px;left: 17px; color: {{fontColor}};" >{{ text | slice:0:15 }} ...</h4>
         <p style="position: relative;top: 54px;left: 22px;width: 325px; color: {{fontColor}}">{{ text | slice:0:400 }} ...</p>
         <img style="position: relative;top: 114px;left: 200px;" src="assets\calendorIcon.png" width="30px" alt="">
         <p style="position: relative;left: 235px;top: 85px; color: {{fontColor}}">2024/01/12</p>
-    </div>
+    </div> -->

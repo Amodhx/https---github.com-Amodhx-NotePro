@@ -24,6 +24,7 @@ export class NoteCardComponent{
   onMouseEnter(){
     const nativeElement = this.elementRef.nativeElement;
     nativeElement.style.borderRadius = "15px";
+    this.fontColor = 'white'
     nativeElement.style.fontColor = "white";
     nativeElement.style.backgroundColor = "#43BBFF"
   }
@@ -31,6 +32,7 @@ export class NoteCardComponent{
   onMouseLeave(){
     const nativeElement = this.elementRef.nativeElement;
     nativeElement.style.backgroundColor ="white";
+    this.fontColor = 'black'
     this.fontColor = "black";
   }
   onCardClick() {
