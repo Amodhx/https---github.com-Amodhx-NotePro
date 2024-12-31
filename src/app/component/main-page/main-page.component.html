@@ -21,10 +21,7 @@
                     <div class="row">
                         <div class="container my-4 col-md-12">
                             <div class="row justify-content-center">
-                                <div class="col-lg-4 d-flex justify-content-center mb-4">
-                                    <app-note-card></app-note-card>
-                                </div>
-                                <!-- @if(noteList.length){
+                                @if(noteList.length){
                                     @for (note of noteList; track $index) {
                                         <div class="col-lg-4 d-flex justify-content-center mb-4">
                                             <app-note-card [cardValues] = "note"></app-note-card>
@@ -33,7 +30,7 @@
                                   }
                                   @else {
                                     <h6 style="justify-content: center; color: gray;">No Avalibel Notes to show!</h6>
-                                  } -->
+                                  }
     
             
                             </div>
