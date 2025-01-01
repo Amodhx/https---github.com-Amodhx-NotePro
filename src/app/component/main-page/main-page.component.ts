@@ -6,7 +6,7 @@ import { NoteModel } from '../../../model/noteModel';
 import { FormsModule, NgModel } from '@angular/forms';
 import * as bootstrap from 'bootstrap';
 import axios from 'axios';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import swal from 'sweetalert2' 
 
 @Component({
   selector: 'app-main-page',
@@ -52,7 +52,6 @@ export class MainPageComponent {
       "userEmail" : ""
     }
     console.log(noteDataToSave);
-    this.closeModal()
     const response = await axios.post('http://localhost:300/api/v1/note/saveNote',noteDataToSave,
     {
         headers: {
@@ -60,10 +59,25 @@ export class MainPageComponent {
         },
       }
     );
-    notes.push(new NoteModel("1",this.noteTitle,this.noteDesc,`${year}-${month.toString().padStart(2, '0')}-${date.toString().padStart(2, '0')}`,this.priorityLevel,""))
-    this.noteTitle = ''
-    this.noteDesc = ''
-    this.priorityLevel = ''
+    if(response.status == 201){
+      this.closeModal()
+      notes.push(new NoteModel("1",this.noteTitle,this.noteDesc,`${year}-${month.toString().padStart(2, '0')}-${date.toString().padStart(2, '0')}`,this.priorityLevel,""))
+      this.noteTitle = ''
+      this.noteDesc = ''
+      this.priorityLevel = ''
+      swal.fire({
+        title: "Saved!",
+        text: "Note data saved to database",
+        icon: "success"
+      });
+    }else{
+      swal.fire({
+          title: "Invalid",
+          text: "Cant save Note",
+          icon: "error"
+        });
+    }
+    
   }
   constructor(){
     this.loadCardValues();
