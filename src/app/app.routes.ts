@@ -16,5 +16,9 @@ export const routes: Routes = [
     {
         path:"view-card",
         component:ViewCardComponent
+    },
+    {
+        path : "login",
+        component : LoginPageComponent
     }
 ];
