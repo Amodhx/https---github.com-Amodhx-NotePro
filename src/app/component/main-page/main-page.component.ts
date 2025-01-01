@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NoteCardComponent } from './note-card/note-card.component';
-import { notes, users } from '../../../db/db';
+import { notes } from '../../../db/db';
 import { NoteModel } from '../../../model/noteModel';
+import { FormsModule } from '@angular/forms';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [SideBarComponent,NoteCardComponent],
+  imports: [SideBarComponent,NoteCardComponent,FormsModule],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
@@ -15,7 +17,19 @@ export class MainPageComponent {
 
   noteList:NoteModel[] = notes;
 
+  noteContent: string = '';
 
+  openModal(): void {
+    const modalElement = document.getElementById('addNoteModal');
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    }
+  }
+  saveNote(): void {
+    console.log('Note saved:', this.noteContent);
+    this.noteContent = ''; // Clear the note content after saving
+  }
   constructor(){
 //     let id:String = users[0].userId;
 //     const http =new XMLHttpRequest();
