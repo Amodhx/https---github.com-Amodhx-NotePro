@@ -3,9 +3,10 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NoteCardComponent } from './note-card/note-card.component';
 import { notes } from '../../../db/db';
 import { NoteModel } from '../../../model/noteModel';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import * as bootstrap from 'bootstrap';
 import axios from 'axios';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-main-page',
@@ -28,6 +29,15 @@ export class MainPageComponent {
       modal.show();
     }
   }
+  closeModal(){
+    const modalElement = document.getElementById('addNoteModal');
+    if (modalElement) {
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      if (modal) {
+        modal.hide();
+      }
+    }
+  }
   async saveNote(){
     const today = new Date();
     const year = today.getFullYear();
@@ -42,7 +52,7 @@ export class MainPageComponent {
       "userEmail" : ""
     }
     console.log(noteDataToSave);
-    
+    this.closeModal()
     const response = await axios.post('http://localhost:300/api/v1/note/saveNote',noteDataToSave,
     {
         headers: {
@@ -50,15 +60,10 @@ export class MainPageComponent {
         },
       }
     );
-    console.log(response);
     notes.push(new NoteModel("1",this.noteTitle,this.noteDesc,`${year}-${month.toString().padStart(2, '0')}-${date.toString().padStart(2, '0')}`,this.priorityLevel,""))
-    const modalElement = document.getElementById('addNoteModal');
-    console.log(modalElement);
-    
-    if (modalElement) {
-      const modal = new bootstrap.Modal(modalElement);
-      modal.hide();  // This hides the modal
-    }
+    this.noteTitle = ''
+    this.noteDesc = ''
+    this.priorityLevel = ''
   }
   constructor(){
     this.loadCardValues();
