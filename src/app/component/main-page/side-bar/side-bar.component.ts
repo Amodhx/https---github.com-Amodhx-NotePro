@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MainPageComponent } from '../main-page.component';
 
 @Component({
   selector: 'app-side-bar',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './side-bar.component.css'
 })
 export class SideBarComponent {
+
+  openModal(){
+    let mn = new MainPageComponent();
+    mn.openModal();
+  }
 
 }
