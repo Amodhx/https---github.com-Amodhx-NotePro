@@ -12,6 +12,9 @@ import { SideBarComponent } from '../main-page/side-bar/side-bar.component';
 })
 export class ViewCardComponent {
   cardValues !: NoteModel;
+  noteTitle:String = ''
+  noteDesc:String = ''
+  createdDate:String = ''
   constructor(private route:ActivatedRoute,){
   }
 
@@ -21,8 +24,10 @@ export class ViewCardComponent {
         this.cardValues = JSON.parse(params['cardValues']);
       }
     });
-    console.log("AAAA"+this.cardValues.createDate);
-    
+    this.noteDesc = this.cardValues.noteDesc
+    this.noteTitle = this.cardValues.noteTitle
+    this.createdDate = this.cardValues.createDate
+
   }
 
 }

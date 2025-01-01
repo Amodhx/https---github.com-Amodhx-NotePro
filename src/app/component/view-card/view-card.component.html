@@ -13,15 +13,15 @@
                 </div>
             </div>
 
-            <div class="row mt-1" style="position: relative; top: 25px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; height: 80vh;  background-color: white; border-radius: 25px;">
+            <div class="row mt-1" style="position: relative; top: 25px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;     height: calc(85vh + -2px);  background-color: white; border-radius: 25px;     width: calc(100% + 8px);">
 
-                <h4 style="font-family: 'SUSE';position: relative;top: 25px;left: 15px;color: gray;" [contentEditable]="true">Title of the Note</h4>
+                <h4 style="font-family: 'SUSE';position: relative;top: 25px;left: 15px;color: gray;" [contentEditable]="false">{{noteTitle}}</h4>
                 
                 <div class="container-fluid">
                     <div class="row">
-                        <p style="position: relative;top: -127px;left: 22px;width: 75vw; color: gray" [contentEditable]="true">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates cumque perferendis nostrum dignissimos qui ratione nulla consectetur animi repellendus modi tenetur cupiditate voluptatibus tempora, voluptas molestias voluptate minima. Repudiandae, expedita! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, alias! Odit reprehenderit illo quos laborum adipisci. Inventore atque eos suscipit, esse maiores porro, soluta fugiat enim maxime possimus mollitia omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni voluptatem quidem non ut cum similique tempore nisi esse quo. Sunt quibusdam voluptatem tenetur totam illo! Nisi neque aspernatur architecto quaerat.</p>
+                        <p style="position: relative;top: -127px;left: 22px;width: 75vw; color: gray" [contentEditable]="false">{{noteDesc}}</p>
                         
-                        <p style="position: relative;top: -127px;left: 22px;width: 75vw; color: gray" [contentEditable]="true">2024/01/01</p>
+                        <p style="position: relative;top: -127px;left: 22px;width: 75vw; color: gray" [contentEditable]="false">{{createdDate}}</p>
                       
 
 
