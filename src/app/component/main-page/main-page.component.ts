@@ -5,6 +5,7 @@ import { notes } from '../../../db/db';
 import { NoteModel } from '../../../model/noteModel';
 import { FormsModule } from '@angular/forms';
 import * as bootstrap from 'bootstrap';
+import axios from 'axios';
 
 @Component({
   selector: 'app-main-page',
@@ -16,8 +17,9 @@ import * as bootstrap from 'bootstrap';
 export class MainPageComponent {
 
   noteList:NoteModel[] = notes;
-
-  noteContent: string = '';
+  noteTitle:string = '';
+  noteDesc: string = '';
+  priorityLevel:string = ''
 
   openModal(): void {
     const modalElement = document.getElementById('addNoteModal');
@@ -27,38 +29,25 @@ export class MainPageComponent {
     }
   }
   saveNote(): void {
-    console.log('Note saved:', this.noteContent);
-    this.noteContent = ''; // Clear the note content after saving
+    console.log('Note saved:', this.noteDesc);
+    this.noteDesc = ''; // Clear the note content after saving
+    // window.location.reload()
+    console.log(notes.length);
+    
   }
   constructor(){
-//     let id:String = users[0].userId;
-//     const http =new XMLHttpRequest();
-//     http.onreadystatechange =() =>{
-//       //check state
-//       if (http.readyState == 4){
-//           if (http.status == 200){
-//               const data = JSON.parse(http.responseText);
-// -                
-//             data.forEach((note:NoteModel) => {
-//               notes.push(new NoteModel(note.noteId,note.noteTitle,note.noteDesc,note.createDate,note.priorityLevel,note.userId));
-//             });
-//             notes.forEach((note:NoteModel)=>{
-//               console.log(note);
-              
-//             })
-//           }else {
-//               console.error("Failed");
-//               console.error("Status Received" , http.status);
-//               console.error("Processing Stage" , http.readyState);
-//           }
-//       }else{
-//           console.log("Processing stage", http.readyState);
-//       }
-//   }
-
-//        http.open("GET","http://localhost:8080/api/v1/notes/getNotes/"+id,true);
-//        http.setRequestHeader("Content-Type","application/json");
-//        http.send();
+    this.loadCardValues();
+  }
+  async loadCardValues(){
+    const notesList = await axios.get('http://localhost:300/api/v1/note/getAllNotes', {
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwtKey')}`
+      }
+    });
+    notes.length = 0
+    await notesList.data.map((note:NoteModel) =>{
+    notes.push(note)
+    })
   }
   
 

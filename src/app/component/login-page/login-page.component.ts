@@ -38,15 +38,6 @@ export class LoginPageComponent {
       const response = await axios.post('http://localhost:300/api/v1/user/signIn', payload);
       if (response.status === 201) {
         localStorage.setItem('jwtKey',response.data)
-        const notesList = await axios.get('http://localhost:300/api/v1/note/getAllNotes', {
-          headers: {
-              Authorization: `Bearer ${response.data}`
-          }
-      });
-      notes.length = 0
-      await notesList.data.map((note:NoteModel) =>{
-        notes.push(note)
-      })
       this.router.navigateByUrl('/home');
       } else {
         console.log('Unexpected status:', response.status);
