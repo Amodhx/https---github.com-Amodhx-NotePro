@@ -28,11 +28,27 @@ export class MainPageComponent {
       modal.show();
     }
   }
-  saveNote(): void {
-    console.log('Note saved:', this.noteDesc);
-    this.noteDesc = ''; // Clear the note content after saving
-    // window.location.reload()
-    console.log(notes.length);
+  async saveNote(){
+    const noteDataToSave = {
+      "note_id" : "",
+      "noteTitle" : this.noteTitle,
+      "noteDesc" : this.noteDesc,
+      "createDate" : Date.now(),
+      "priorityLevel" : this.priorityLevel,
+      "userEmail" : ""
+    }
+    console.log(noteDataToSave);
+    
+    const response = await axios.post('http://localhost:300/api/v1/note/saveNote',noteDataToSave,
+    {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwtKey')}`,
+        },
+      }
+    );
+    console.log(response);
+    
+    window.location.reload()
     
   }
   constructor(){
