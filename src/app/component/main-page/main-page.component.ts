@@ -29,11 +29,15 @@ export class MainPageComponent {
     }
   }
   async saveNote(){
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const date = today.getDate();
     const noteDataToSave = {
       "note_id" : "",
       "noteTitle" : this.noteTitle,
       "noteDesc" : this.noteDesc,
-      "createDate" : Date.now(),
+      "createDate" :  `${year}-${month.toString().padStart(2, '0')}-${date.toString().padStart(2, '0')}`,
       "priorityLevel" : this.priorityLevel,
       "userEmail" : ""
     }
@@ -47,9 +51,14 @@ export class MainPageComponent {
       }
     );
     console.log(response);
+    notes.push(new NoteModel("1",this.noteTitle,this.noteDesc,`${year}-${month.toString().padStart(2, '0')}-${date.toString().padStart(2, '0')}`,this.priorityLevel,""))
+    const modalElement = document.getElementById('addNoteModal');
+    console.log(modalElement);
     
-    window.location.reload()
-    
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      modal.hide();  // This hides the modal
+    }
   }
   constructor(){
     this.loadCardValues();
