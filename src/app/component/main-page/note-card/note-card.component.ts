@@ -13,13 +13,13 @@ import { notes } from '../../../../db/db';
   styleUrl: './note-card.component.css'
 })
 export class NoteCardComponent{
-
   @Input()
   cardValues?:NoteModel = new NoteModel("dsa","sda","das","dsa","dsa","dsa");
 
   constructor(private elementRef: ElementRef, private router:Router) {
     
   }
+  backgroundColor = "red"
   color = "white";
   fontColor = "black";
   onMouseEnter(){
@@ -28,6 +28,7 @@ export class NoteCardComponent{
     this.fontColor = 'white'
     nativeElement.style.fontColor = "white";
     nativeElement.style.backgroundColor = "#43BBFF"
+
   }
 
   truncateText(text: any, wordLimit: number): string {
@@ -41,7 +42,7 @@ export class NoteCardComponent{
 
   onMouseLeave(){
     const nativeElement = this.elementRef.nativeElement;
-    nativeElement.style.backgroundColor ="white";
+    nativeElement.style.backgroundColor = this.backgroundColor;
     this.fontColor = 'black'
     this.fontColor = "black";
   }
