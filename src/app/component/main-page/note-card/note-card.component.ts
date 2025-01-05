@@ -26,10 +26,7 @@ export class NoteCardComponent{
   onMouseEnter(){
     const nativeElement = this.elementRef.nativeElement;
     nativeElement.style.borderRadius = "15px";
-    this.fontColor = 'white'
-    nativeElement.style.fontColor = "white";
     this.currentBackgroundColor = this.getBackgroundColor(this.cardValues?.priorityLevel)
-    console.log(this.currentBackgroundColor);
     
   }
   getBackgroundColor(priority:any ) {
@@ -73,6 +70,8 @@ export class NoteCardComponent{
     this.currentBackgroundColor = 'white'
   }
   onCardClick() {
+    console.log("A");
+    
     this.router.navigate(['/view-card'], {
       queryParams: { cardValues: JSON.stringify(this.cardValues) }
     });
