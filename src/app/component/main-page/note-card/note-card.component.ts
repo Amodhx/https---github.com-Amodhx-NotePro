@@ -3,6 +3,7 @@ import { NoteModel } from '../../../../model/noteModel';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { notes } from '../../../../db/db';
+import { animationFrameScheduler } from 'rxjs';
 
 
 @Component({
@@ -17,9 +18,9 @@ export class NoteCardComponent{
   cardValues?:NoteModel = new NoteModel("dsa","sda","das","dsa","dsa","dsa");
 
   constructor(private elementRef: ElementRef, private router:Router) {
-    
   }
-  backgroundColor = "red"
+  currentBackgroundColor = 'white'
+  backgroundColor = "white"
   color = "white";
   fontColor = "black";
   onMouseEnter(){
@@ -27,8 +28,33 @@ export class NoteCardComponent{
     nativeElement.style.borderRadius = "15px";
     this.fontColor = 'white'
     nativeElement.style.fontColor = "white";
-    nativeElement.style.backgroundColor = "#43BBFF"
-
+    this.currentBackgroundColor = this.getBackgroundColor(this.cardValues?.priorityLevel)
+    console.log(this.currentBackgroundColor);
+    
+  }
+  getBackgroundColor(priority:any ) {
+    switch (priority) {
+      case 'High':
+        return '#FFC1C1';
+      case 'Medium':
+        return '#FFF5BA';
+      case 'Low':
+        return '#D4F8E8';
+      default:
+        return '#FFFFFF';
+    }
+  }
+  getBorderColor(priority:any) {
+    switch (priority) {
+      case 'High':
+        return '#FFC1C1';
+      case 'Medium':
+        return '#FFF5BA';
+      case 'Low':
+        return '#D4F8E8';
+      default:
+        return '#43BBFF';
+    }
   }
 
   truncateText(text: any, wordLimit: number): string {
@@ -42,9 +68,9 @@ export class NoteCardComponent{
 
   onMouseLeave(){
     const nativeElement = this.elementRef.nativeElement;
-    nativeElement.style.backgroundColor = this.backgroundColor;
+    nativeElement.style.backgroundColor = 'white';
     this.fontColor = 'black'
-    this.fontColor = "black";
+    this.currentBackgroundColor = 'white'
   }
   onCardClick() {
     this.router.navigate(['/view-card'], {
